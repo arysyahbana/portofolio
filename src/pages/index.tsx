@@ -123,10 +123,10 @@ export default function Home() {
           <img src="/images/laptop.png" className="max-w-sm rounded-lg" />
           <div>
             <h1 className="text-5xl font-bold text-white">
-              Hello, I'am Ary Syahbana
+              Hello, I&apos;am Ary Syahbana
             </h1>
             <h1 className="py-3 text-4xl font-bold text-white">
-              I'am a{" "}
+              I&apos;am a{" "}
               <span className="text-sky-500">
                 <Typewriter
                   words={[
@@ -183,12 +183,12 @@ export default function Home() {
             <div className="w-full lg:w-1/2">
               <p className="text-3xl font-bold text-white mb-6">About Me</p>
               <p className="mb-3">
-                Hello! I’m Ary from Padang, Indonesia, with a Bachelor's in
-                Informatics Engineering Education from Universitas Negeri
-                Padang. I'm passionate about web development and eager to keep
-                improving my skills. I plan to add more projects to this
-                portfolio and look forward to contributing my expertise to
-                impactful work.
+                Hello! I&apos;m Ary from Padang, Indonesia, with a
+                Bachelor&apos;s in Informatics Engineering Education from
+                Universitas Negeri Padang. I&apos;m passionate about web
+                development and eager to keep improving my skills. I plan to add
+                more projects to this portfolio and look forward to contributing
+                my expertise to impactful work.
               </p>
               <p className="mb-3">Tech stack i use :</p>
               <div className="flex flex-wrap gap-5">
