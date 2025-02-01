@@ -2,7 +2,11 @@ import Footer from "@/layouts/Footer";
 import Navbar from "@/layouts/Navbar";
 import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
-
+import { motion } from "motion/react";
+import { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import Comp from "../../public/Comp";
 export default function Home() {
   const services = [
     {
@@ -100,6 +104,7 @@ export default function Home() {
       name: "Gmail",
     },
   ];
+
   return (
     <div className="bg">
       <Navbar />
@@ -119,9 +124,18 @@ export default function Home() {
         {/* Gradien untuk Transisi */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-base-100"></div>
 
-        <div className="relative z-10 container mx-auto mt-60 px-12 flex flex-col lg:flex-row-reverse">
-          <img src="/images/laptop.png" className="max-w-sm rounded-lg" />
-          <div>
+        <div className="relative z-10 container mx-auto mt-60 px-12 flex flex-col lg:flex-row overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 1,
+              delay: 0.5,
+              type: "spring",
+              stiffness: 100,
+            }}
+            className="lg:pt-16"
+          >
             <h1 className="text-5xl font-bold text-white">
               Hello, I&apos;am Ary Syahbana
             </h1>
@@ -168,7 +182,26 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-          </div>
+          </motion.div>
+          {/* tempat 3d */}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 1,
+              delay: 0.5,
+              type: "spring",
+              stiffness: 100,
+            }}
+            className="lg:w-1/2"
+          >
+            <Canvas>
+              <Suspense fallback={null}>
+                <OrbitControls />
+                <Comp />
+              </Suspense>
+            </Canvas>
+          </motion.div>
         </div>
       </div>
 
@@ -193,16 +226,25 @@ export default function Home() {
               <p className="mb-3">Tech stack i use :</p>
               <div className="flex flex-wrap gap-5">
                 {stacks && stacks.length > 0 ? (
-                  stacks.map((stack) => (
-                    <div
+                  stacks.map((stack, index) => (
+                    <motion.div
                       key={stack.id}
                       className="tooltip"
                       data-tip={stack.name}
+                      transition={{
+                        duration: 1,
+                        delay: 0.5 + index * 0.2,
+                        type: "spring",
+                        stiffness: 100,
+                      }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, y: -50 }}
+                      viewport={{ once: true, amount: 0.5 }}
                     >
                       <button className="bg-gradient-to-r from-violet-500 to-sky-500 p-2 rounded-lg hover:scale-110 transition duration-300">
                         <img src={stack.img} alt="" className="w-8" />
                       </button>
-                    </div>
+                    </motion.div>
                   ))
                 ) : (
                   <p>Loading...</p>
@@ -218,8 +260,23 @@ export default function Home() {
             My Experiences
           </p>
           <ul className="timeline timeline-vertical">
+            {/* Metro */}
             <li>
-              <div className="timeline-start timeline-box border-white border-2 py-5 hover:scale-105 transition duration-300 hover:bg-slate-700 hover:border-0">
+              <motion.div
+                transition={{
+                  duration: 1,
+                }}
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: -100 }}
+                viewport={{ once: true, amount: 0.5 }}
+                whileHover={{
+                  scale: 1.05, // Skala saat hover
+                  backgroundColor: "rgb(51,65,85)", // Background berubah jadi warna slate-700
+                  borderColor: "rgba(0,0,0,0)",
+                  transition: { duration: 0.4 },
+                }}
+                className="timeline-start timeline-box border-white border-2 py-5"
+              >
                 <div className="flex justify-between items-center">
                   <p className="text-xl font-bold text-white">
                     Metro Indonesian Software
@@ -253,7 +310,7 @@ export default function Home() {
                     application performance and ensure security.
                   </li>
                 </ul>
-              </div>
+              </motion.div>
 
               <div className="timeline-middle">
                 <svg
@@ -271,6 +328,8 @@ export default function Home() {
               </div>
               <hr className="bg-primary" />
             </li>
+
+            {/* Arge */}
             <li>
               <hr className="bg-primary" />
               <div className="timeline-middle">
@@ -287,7 +346,22 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <div className="timeline-end timeline-box border-white border-2 py-5 hover:scale-105 transition duration-300 hover:bg-slate-700 hover:border-0">
+
+              <motion.div
+                transition={{
+                  duration: 0.9,
+                }}
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: -100 }}
+                viewport={{ once: true, amount: 0.5 }}
+                whileHover={{
+                  scale: 1.05, // Skala saat hover
+                  backgroundColor: "rgb(51,65,85)", // Background berubah jadi warna slate-700
+                  borderColor: "rgba(0,0,0,0)",
+                  transition: { duration: 0.4 },
+                }}
+                className="timeline-end timeline-box border-white border-2 py-5"
+              >
                 <div className="flex justify-between items-center">
                   <p className="text-xl font-bold text-white">
                     PT. Argenesia
@@ -318,12 +392,30 @@ export default function Home() {
                     smooth user experience.
                   </li>
                 </ul>
-              </div>
+              </motion.div>
+
               <hr className="bg-primary" />
             </li>
+
+            {/* Trueverse */}
             <li>
-              <hr />
-              <div className="timeline-start timeline-box border-white border-2 py-5 hover:scale-105 transition duration-300 hover:bg-slate-700 hover:border-0">
+              <hr className="bg-primary" />
+
+              <motion.div
+                transition={{
+                  duration: 1,
+                }}
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: -100 }}
+                viewport={{ once: true, amount: 0.5 }}
+                whileHover={{
+                  scale: 1.05, // Skala saat hover
+                  backgroundColor: "rgb(51,65,85)", // Background berubah jadi warna slate-700
+                  borderColor: "rgba(0,0,0,0)",
+                  transition: { duration: 0.4 },
+                }}
+                className="timeline-start timeline-box border-white border-2 py-5"
+              >
                 <div className="flex justify-between items-center">
                   <p className="text-xl font-bold text-white">
                     Truverse Global Kreatif
@@ -354,13 +446,14 @@ export default function Home() {
                     reliable and highquality user experience.
                   </li>
                 </ul>
-              </div>
+              </motion.div>
+
               <div className="timeline-middle">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="h-5 w-5"
+                  className="text-primary h-5 w-5"
                 >
                   <path
                     fill-rule="evenodd"
@@ -409,12 +502,21 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-5">
             {contacts && contacts.length > 0 ? (
-              contacts.map((contact) => (
-                <a
+              contacts.map((contact, index) => (
+                <motion.a
                   key={contact.id}
                   href={contact.link}
                   className="mb-3"
                   target="_blank"
+                  transition={{
+                    duration: 1,
+                    delay: 0.5 + index * 0.2,
+                    type: "spring",
+                    stiffness: 100,
+                  }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: -50 }}
+                  viewport={{ once: true, amount: 0.5 }}
                 >
                   <div className="card card-compact bg-slate-700 hover:text-white hover:bg-sky-500 hover:shadow-xl transform hover:scale-110 transition duration-300">
                     <div className="card-body">
@@ -428,7 +530,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </motion.a>
               ))
             ) : (
               <p>Loading contacts...</p>
