@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -38,22 +37,22 @@ const Navbar = () => {
                 </p>
               </div>
             </Link>
-            <a href="/about">
+            <Link href="/#about">
               <div className="flex gap-1">
                 <div className="text-md">{/* <FaUser /> */}</div>
                 <p className="font-bold text-sm text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-300 hover:to-sky-500 transition duration-200 hover:scale-110">
                   About
                 </p>
               </div>
-            </a>
-            <a href="/services">
+            </Link>
+            <Link href="/#services">
               <div className="flex gap-1">
                 <div className="text-md">{/* <FaUser /> */}</div>
                 <p className="font-bold text-sm text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-300 hover:to-sky-500 transition duration-300 hover:scale-110">
                   Services
                 </p>
               </div>
-            </a>
+            </Link>
             <Link href="projects">
               <div className="flex gap-1">
                 <div className="text-md">{/* <MdContactless /> */}</div>
@@ -65,7 +64,7 @@ const Navbar = () => {
           </div>
 
           <button className="hidden sm:flex text-white bg-gradient-to-r from-violet-500 to-sky-500 hover:from-sky-500 hover:to-violet-500 transition duration-200 hover:scale-105 px-5 py-2 rounded-lg">
-            Contact
+            <Link href="/#contact">Contact</Link>
           </button>
 
           {/* Hamburger Menu */}
@@ -96,10 +95,10 @@ const Navbar = () => {
                 <Link href="/">Home</Link>
               </li>
               <li className="mb-3">
-                <Link href="/about">About</Link>
+                <Link href="#about">About</Link>
               </li>
               <li className="mb-3">
-                <Link href="/contact">Services</Link>
+                <Link href="#contact">Services</Link>
               </li>
               <li className="mb-3">
                 <Link href="projects">Projects</Link>
@@ -108,7 +107,7 @@ const Navbar = () => {
             {/* Contact Button */}
             <div className="flex gap-2 justify-center sm:hidden">
               <button className="text-white bg-gradient-to-r from-violet-500 to-sky-500 hover:from-sky-500 hover:to-violet-500 transition duration-200 hover:scale-105 px-5 py-2 rounded-lg">
-                Contact
+                <Link href="#contact">Contact</Link>
               </button>
             </div>
           </div>

@@ -65,36 +65,24 @@ const Projects = () => {
     },
     {
       id: 10,
-      title: "Huddle Landing Page",
-      desc: "Huddle Landing Page is a clean and minimalistic UI developed using Tailwind CSS. Designed to promote community-driven collaboration, this responsive layout highlights key features and call-to-action sections effectively.",
-      img: "/images/projects/huddle.png",
-    },
-    {
-      id: 11,
-      title: "Base Apparel Coming Soon",
-      desc: "Base Apparel Coming Soon is a simple and elegant landing page UI crafted with Tailwind CSS. This project focuses on a sleek and responsive design with a subscription form, making it a perfect template for upcoming product launches.",
-      img: "/images/projects/apparel.png",
-    },
-    {
-      id: 12,
       title: "Age Calculator App",
       desc: "Age Calculator App is a simple yet functional UI built with Vue.js and styled using Tailwind CSS. This application allows users to input their birth date and instantly calculate their exact age in years, months, and days with a clean and responsive interface.",
       img: "/images/projects/age.png",
     },
     {
-      id: 13,
+      id: 11,
       title: "Interactive Card",
       desc: "Interactive Card is a modern and dynamic UI designed with Vue.js and Tailwind CSS. This project features real-time form validation and interactive previews, making it an ideal template for digital payment or credit card forms with a sleek and user-friendly design.",
       img: "/images/projects/interactive card.png",
     },
     {
-      id: 14,
+      id: 12,
       title: "Pokedex",
       desc: "Pokedex is a web application that provides detailed information about Pokémon. Built with Vue.js and styled using Tailwind CSS, this app fetches real-time Pokémon data from an API, allowing users to search, browse, and explore various Pokémon along with their stats, abilities, and types in a clean and interactive interface.",
       img: "/images/projects/pokemon.png",
     },
     {
-      id: 15,
+      id: 13,
       title: "Healthcare Landing Page",
       desc: "Healthcare Landing Page is a responsive and modern UI designed using Bootstrap. This project provides a clean and professional layout suitable for medical and healthcare services, featuring well-structured sections for services, testimonials, and contact information.",
       img: "/images/projects/healthcare.png",
@@ -120,7 +108,11 @@ const Projects = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {paginatedItems && paginatedItems.length > 0 ? (
               paginatedItems.map((item) => (
-                <Link key={item.id} href="projects/details" className="mb-3">
+                <Link
+                  key={item.id}
+                  href={`/projects/${item.id}`}
+                  className="mb-3"
+                >
                   <div className="card card-compact hover:bg-gray-700 hover:shadow-xl transform hover:scale-105 transition duration-300">
                     <figure>
                       <img src={item.img} alt={item.title} />

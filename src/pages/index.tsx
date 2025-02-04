@@ -106,7 +106,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg">
+    <div className="">
       <Navbar />
 
       {/* Hero */}
@@ -208,7 +208,7 @@ export default function Home() {
       {/* Content */}
       <div className="bg-base-100">
         {/* About */}
-        <div className="container mx-auto py-28 px-12">
+        <section id="about" className="container mx-auto py-28 px-12">
           <div className="flex flex-wrap justify-center items-center gap-10">
             <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1 rounded-full">
               <img src="/images/Foto.svg" alt="" className="rounded-full" />
@@ -252,10 +252,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Experiences */}
-        <div className="container mx-auto mb-32 px-12">
+        <section className="container mx-auto mb-32 px-12">
           <p className="text-center text-3xl font-bold text-white mb-12">
             My Experiences
           </p>
@@ -464,10 +464,10 @@ export default function Home() {
               </div>
             </li>
           </ul>
-        </div>
+        </section>
 
         {/* Services */}
-        <div className="container mx-auto mb-32 px-12">
+        <section id="services" className="container mx-auto mb-32 px-12">
           <p className="text-center text-3xl font-bold text-white mb-8">
             Services
           </p>
@@ -493,10 +493,10 @@ export default function Home() {
               <p>Loading services...</p>
             )}
           </div>
-        </div>
+        </section>
 
         {/* Contact */}
-        <div className="container mx-auto pb-32 px-12">
+        <section id="contact" className="container mx-auto pb-32 px-12">
           <p className="text-center text-3xl font-bold text-white mb-8">
             Contact Me
           </p>
@@ -536,7 +536,7 @@ export default function Home() {
               <p>Loading contacts...</p>
             )}
           </div>
-        </div>
+        </section>
       </div>
 
       <Footer />
