@@ -156,7 +156,7 @@ const Detail = () => {
   );
 
   useEffect(() => {
-    if (project && project.imgs.length > 0 && !selectedImg) {
+    if (project?.imgs && project.imgs.length > 0 && !selectedImg) {
       setSelectedImg(project.imgs[0]); // Set gambar pertama sebagai default
     }
   }, [project]);
