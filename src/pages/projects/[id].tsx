@@ -140,7 +140,7 @@ const Detail = () => {
 
     // Filter project yang sedang ditampilkan
     const filteredProjects = moreProjects.filter(
-      (projectAll) => projectAll.id !== parseInt(id)
+      (projectAll) => projectAll.id !== parseInt(Array.isArray(id) ? id[0] : id)
     );
 
     // Acak dan ambil 8 item
