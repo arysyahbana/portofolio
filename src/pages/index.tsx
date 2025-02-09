@@ -7,6 +7,8 @@ import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Comp from "../../public/Comp";
+import Link from "next/link";
+import { HiDownload } from "react-icons/hi";
 export default function Home() {
   const services = [
     {
@@ -111,13 +113,23 @@ export default function Home() {
 
       {/* Hero */}
       <div className="relative overflow-hidden min-h-[650px] bg-gradient-to-b from-sky-800 to-base-100">
-        <Image
+        {/* <Image
           src="/images/bg.svg"
           alt="Background"
           layout="fill"
           objectFit="cover"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        />
+        /> */}
+        <video
+          className="absolute inset-0 w-full h-full lg:h-screen object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/videos/shenhe.mp4" type="video/mp4" />
+          Browser Anda tidak mendukung tag video.
+        </video>
         {/* Overlay Transparan untuk Pencampuran */}
         <div className="absolute inset-0 bg-black opacity-30"></div>
 
@@ -134,7 +146,7 @@ export default function Home() {
               type: "spring",
               stiffness: 100,
             }}
-            className="lg:pt-16"
+            className="lg:w-1/2"
           >
             <h1 className="text-5xl font-bold text-white">
               Hello, I&apos;am Ary Syahbana
@@ -162,29 +174,24 @@ export default function Home() {
               efficient web applications using modern technologies. I strive to
               deliver high-quality solutions that meet user needs.
             </p>
-            <div className="dropdown dropdown-right">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-primary text-white m-1"
-              >
-                Download
+            <button className="text-white bg-violet-500 hover:bg-sky-500 transition duration-200 hover:scale-105 px-5 py-2 rounded-lg">
+              <div className="flex gap-1 items-center">
+                <span>
+                  <HiDownload />
+                </span>
+                <Link
+                  href="/cv/Ary Syahbana-resume.pdf"
+                  download="Ary Syahbana-resume.pdf"
+                  className="text-sm font-bold"
+                  target="_blank"
+                >
+                  Curiculum Vitae
+                </Link>
               </div>
-              <ul
-                tabIndex={0}
-                className="dropdown-content menu bg-slate-700 rounded-box z-[1] w-52 p-2 shadow"
-              >
-                <li>
-                  <a>Download CV</a>
-                </li>
-                <li>
-                  <a>Download Portofolio</a>
-                </li>
-              </ul>
-            </div>
+            </button>
           </motion.div>
           {/* tempat 3d */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
@@ -201,18 +208,26 @@ export default function Home() {
                 <Comp />
               </Suspense>
             </Canvas>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
 
       {/* Content */}
       <div className="bg-base-100">
         {/* About */}
-        <section id="about" className="container mx-auto py-28 px-12">
+        <section id="about" className="container mx-auto py-44 px-12">
           <div className="flex flex-wrap justify-center items-center gap-10">
-            <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1 rounded-full">
-              <img src="/images/Foto.svg" alt="" className="rounded-full" />
+            <div className="border-4 border-sky-500 hover:border-violet-500 p-1 rounded-full transition-all duration-300">
+              <img
+                src="/images/Foto2.png"
+                alt=""
+                className="rounded-full transition-transform duration-300 rotate-0 hover:-rotate-6"
+              />
             </div>
+
+            {/* <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1 rounded-full">
+              <img src="/images/Foto.svg" alt="" className="rounded-full" />
+            </div> */}
             <div className="w-full lg:w-1/2">
               <p className="text-3xl font-bold text-white mb-6">About Me</p>
               <p className="mb-3">
@@ -264,18 +279,17 @@ export default function Home() {
             <li>
               <motion.div
                 transition={{
-                  duration: 1,
+                  duration: 0.5,
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -100 }}
                 viewport={{ once: true, amount: 0.5 }}
                 whileHover={{
-                  scale: 1.05, // Skala saat hover
-                  backgroundColor: "rgb(51,65,85)", // Background berubah jadi warna slate-700
-                  borderColor: "rgba(0,0,0,0)",
+                  borderColor: "rgb(255,255,255)",
                   transition: { duration: 0.4 },
+                  x: -10,
                 }}
-                className="timeline-start timeline-box border-white border-2 py-5"
+                className="timeline-start timeline-box border-transparent border-2 py-5"
               >
                 <div className="flex justify-between items-center">
                   <p className="text-xl font-bold text-white">
@@ -349,18 +363,18 @@ export default function Home() {
 
               <motion.div
                 transition={{
-                  duration: 0.9,
+                  duration: 0.6,
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -100 }}
                 viewport={{ once: true, amount: 0.5 }}
                 whileHover={{
-                  scale: 1.05, // Skala saat hover
-                  backgroundColor: "rgb(51,65,85)", // Background berubah jadi warna slate-700
-                  borderColor: "rgba(0,0,0,0)",
+                  // scale: 1.05, // Skala saat hover
+                  borderColor: "rgb(255,255,255)",
                   transition: { duration: 0.4 },
+                  x: 10,
                 }}
-                className="timeline-end timeline-box border-white border-2 py-5"
+                className="timeline-end timeline-box border-transparent border-2 py-5"
               >
                 <div className="flex justify-between items-center">
                   <p className="text-xl font-bold text-white">
@@ -403,18 +417,17 @@ export default function Home() {
 
               <motion.div
                 transition={{
-                  duration: 1,
+                  duration: 0.7,
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -100 }}
                 viewport={{ once: true, amount: 0.5 }}
                 whileHover={{
-                  scale: 1.05, // Skala saat hover
-                  backgroundColor: "rgb(51,65,85)", // Background berubah jadi warna slate-700
-                  borderColor: "rgba(0,0,0,0)",
+                  borderColor: "rgb(255,255,255)",
                   transition: { duration: 0.4 },
+                  x: -10,
                 }}
-                className="timeline-start timeline-box border-white border-2 py-5"
+                className="timeline-start timeline-box border-transparent border-2 py-5"
               >
                 <div className="flex justify-between items-center">
                   <p className="text-xl font-bold text-white">
@@ -467,7 +480,7 @@ export default function Home() {
         </section>
 
         {/* Services */}
-        <section id="services" className="container mx-auto mb-32 px-12">
+        <section id="services" className="container mx-auto mb-44 px-12">
           <p className="text-center text-3xl font-bold text-white mb-8">
             Services
           </p>
@@ -496,7 +509,7 @@ export default function Home() {
         </section>
 
         {/* Contact */}
-        <section id="contact" className="container mx-auto pb-32 px-12">
+        <section id="contact" className="container mx-auto pb-44 px-12">
           <p className="text-center text-3xl font-bold text-white mb-8">
             Contact Me
           </p>

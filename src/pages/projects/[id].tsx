@@ -4,7 +4,18 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const Detail = () => {
-  const moreProjects = [
+  type ProjectType = {
+    id: number;
+    title: string;
+    desc: string;
+    img?: string;
+    imgs?: string[];
+    stacks?: { name: string; img: string }[];
+    link?: string;
+    github?: string;
+  };
+
+  const moreProjects: ProjectType[] = [
     {
       id: 1,
       title: "Metro Indonesia Software Company Profile",
@@ -36,57 +47,9 @@ const Detail = () => {
       desc: "This application is built using Laravel for the backend and Tailwind CSS for the frontend. It serves as a transparency platform for village fund management, enabling administrators to provide real-time updates on fund allocations, expenditures, and financial reports. The system ensures accountability and easy access to crucial financial data for the public, fostering trust and transparency in local governance.",
       img: "/images/projects/WITPDD.png",
     },
-    {
-      id: 6,
-      title: "ALaundry - Modern Laundry Service UI",
-      desc: "ALaundry is a sleek and responsive user interface designed for a modern laundry service application. Built with React.js and styled using Tailwind CSS, this project focuses on delivering a clean and intuitive UI experience. While it currently serves as a front-end prototype.",
-      img: "/images/projects/Alaundry.png",
-    },
-    {
-      id: 7,
-      title: "Url Shortening Website",
-      desc: "This project is a URL shortening website that utilizes an API to generate short links efficiently. Built with Vue.js for the frontend and styled using Tailwind CSS, the application offers a clean and modern interface for users to shorten, manage, and track URLs. The seamless API integration ensures quick and reliable link generation, making it a practical solution for efficient URL management.",
-      img: "/images/projects/shortlink.png",
-    },
-    {
-      id: 8,
-      title: "Easybank Landing Page",
-      desc: "Easybank Landing Page is a fully responsive UI design created using Tailwind CSS. This project showcases a modern and clean landing page layout with smooth animations and an intuitive design, making it an ideal front-end template for digital banking services.",
-      img: "/images/projects/easybank.png",
-    },
-    {
-      id: 9,
-      title: "Sunnyside Landing Page",
-      desc: "Sunnyside Landing Page is a visually appealing and responsive UI built with Tailwind CSS. Designed for a creative agency, this landing page features engaging layouts, vibrant colors, and a structured content presentation to enhance user experience.",
-      img: "/images/projects/sunnyside.png",
-    },
-    {
-      id: 10,
-      title: "Age Calculator App",
-      desc: "Age Calculator App is a simple yet functional UI built with Vue.js and styled using Tailwind CSS. This application allows users to input their birth date and instantly calculate their exact age in years, months, and days with a clean and responsive interface.",
-      img: "/images/projects/age.png",
-    },
-    {
-      id: 11,
-      title: "Interactive Card",
-      desc: "Interactive Card is a modern and dynamic UI designed with Vue.js and Tailwind CSS. This project features real-time form validation and interactive previews, making it an ideal template for digital payment or credit card forms with a sleek and user-friendly design.",
-      img: "/images/projects/interactive card.png",
-    },
-    {
-      id: 12,
-      title: "Pokedex",
-      desc: "Pokedex is a web application that provides detailed information about Pokémon. Built with Vue.js and styled using Tailwind CSS, this app fetches real-time Pokémon data from an API, allowing users to search, browse, and explore various Pokémon along with their stats, abilities, and types in a clean and interactive interface.",
-      img: "/images/projects/pokemon.png",
-    },
-    {
-      id: 13,
-      title: "Healthcare Landing Page",
-      desc: "Healthcare Landing Page is a responsive and modern UI designed using Bootstrap. This project provides a clean and professional layout suitable for medical and healthcare services, featuring well-structured sections for services, testimonials, and contact information.",
-      img: "/images/projects/healthcare.png",
-    },
   ];
 
-  const item = [
+  const item: ProjectType[] = [
     {
       id: 1,
       title: "Metro Indonesia Software Company Profile",
@@ -112,11 +75,17 @@ const Detail = () => {
       title: "Repository Asset Digital",
       desc: " The Digital Asset Repository Application, built with Laravel and Bootstrap, stores and manages digital assets in one place, making it easy for users to search, organize, and access their assets efficiently. With powerful features, it streamlines asset management for personal and professional use. With these features and more, the Digital Asset Repository Application aims to be an indispensable tool for efficient digital asset management.",
       imgs: [
-        "/images/projects/Repository Asset Digital.png",
-        "/images/bg1.jpg",
-        "/images/bg2.jpg",
-        "/images/bg3.jpg",
+        "/images/projectsdetail/digitalasset/1.png",
+        "/images/projectsdetail/digitalasset/2.png",
+        "/images/projectsdetail/digitalasset/3.png",
       ],
+      stacks: [
+        { name: "Figma", img: "/images/stack/figma.svg" },
+        { name: "Bootstrap", img: "/images/stack/bootstrap.svg" },
+        { name: "Laravel", img: "/images/stack/laravel.svg" },
+      ],
+      link: "https://vokasi.unp.ac.id/aset-digital/",
+      github: "https://github.com/arysyahbana/MAAD-Laravel-10",
     },
     {
       id: 3,
@@ -124,73 +93,47 @@ const Detail = () => {
         "Tourism Object Information Website and Accommodation Recommendations",
       desc: "his application is a decision support system designed to help tourists find the best accommodations, tour packages, and attractions, with a focus on promoting Alahan Panjang.",
       imgs: ["/images/projects/SIOP.png"],
+      stacks: [
+        { name: "Figma", img: "/images/stack/figma.svg" },
+        { name: "Bootstrap", img: "/images/stack/bootstrap.svg" },
+        { name: "Tailwind CSS", img: "/images/stack/tailwind.svg" },
+        { name: "Laravel", img: "/images/stack/laravel.svg" },
+      ],
+      github: "https://github.com/arysyahbana/siop",
     },
     {
       id: 4,
       title: "Extracurricular Decision Support System",
       desc: "This application is a decision support system designed to help students choose extracurricular activities that align with their interests and skills. Using the SMART (Simple Multi-Attribute Rating Technique) method, the application presents a series of questions for students to answer. These responses are then calculated to generate a tailored recommendation for the most suitable extracurricular activity.",
       imgs: ["/images/projects/Ekskul.png"],
+      stacks: [
+        { name: "Figma", img: "/images/stack/figma.svg" },
+        { name: "Bootstrap", img: "/images/stack/bootstrap.svg" },
+        { name: "Tailwind CSS", img: "/images/stack/tailwind.svg" },
+        { name: "Laravel", img: "/images/stack/laravel.svg" },
+      ],
+      github: "https://github.com/arysyahbana/Ekskul",
     },
     {
       id: 5,
       title: "Transparency Information Website for Village Fund Usage",
       desc: "This application is built using Laravel for the backend and Tailwind CSS for the frontend. It serves as a transparency platform for village fund management, enabling administrators to provide real-time updates on fund allocations, expenditures, and financial reports. The system ensures accountability and easy access to crucial financial data for the public, fostering trust and transparency in local governance.",
       imgs: ["/images/projects/WITPDD.png"],
-    },
-    {
-      id: 6,
-      title: "ALaundry - Modern Laundry Service UI",
-      desc: "ALaundry is a sleek and responsive user interface designed for a modern laundry service application. Built with React.js and styled using Tailwind CSS, this project focuses on delivering a clean and intuitive UI experience. While it currently serves as a front-end prototype.",
-      imgs: ["/images/projects/Alaundry.png"],
-    },
-    {
-      id: 7,
-      title: "Url Shortening Website",
-      desc: "This project is a URL shortening website that utilizes an API to generate short links efficiently. Built with Vue.js for the frontend and styled using Tailwind CSS, the application offers a clean and modern interface for users to shorten, manage, and track URLs. The seamless API integration ensures quick and reliable link generation, making it a practical solution for efficient URL management.",
-      imgs: ["/images/projects/shortlink.png"],
-    },
-    {
-      id: 8,
-      title: "Easybank Landing Page",
-      desc: "Easybank Landing Page is a fully responsive UI design created using Tailwind CSS. This project showcases a modern and clean landing page layout with smooth animations and an intuitive design, making it an ideal front-end template for digital banking services.",
-      imgs: ["/images/projects/easybank.png"],
-    },
-    {
-      id: 9,
-      title: "Sunnyside Landing Page",
-      desc: "Sunnyside Landing Page is a visually appealing and responsive UI built with Tailwind CSS. Designed for a creative agency, this landing page features engaging layouts, vibrant colors, and a structured content presentation to enhance user experience.",
-      imgs: ["/images/projects/sunnyside.png"],
-    },
-    {
-      id: 10,
-      title: "Age Calculator App",
-      desc: "Age Calculator App is a simple yet functional UI built with Vue.js and styled using Tailwind CSS. This application allows users to input their birth date and instantly calculate their exact age in years, months, and days with a clean and responsive interface.",
-      imgs: ["/images/projects/age.png"],
-    },
-    {
-      id: 11,
-      title: "Interactive Card",
-      desc: "Interactive Card is a modern and dynamic UI designed with Vue.js and Tailwind CSS. This project features real-time form validation and interactive previews, making it an ideal template for digital payment or credit card forms with a sleek and user-friendly design.",
-      imgs: ["/images/projects/interactive card.png"],
-    },
-    {
-      id: 12,
-      title: "Pokedex",
-      desc: "Pokedex is a web application that provides detailed information about Pokémon. Built with Vue.js and styled using Tailwind CSS, this app fetches real-time Pokémon data from an API, allowing users to search, browse, and explore various Pokémon along with their stats, abilities, and types in a clean and interactive interface.",
-      imgs: ["/images/projects/pokemon.png"],
-    },
-    {
-      id: 13,
-      title: "Healthcare Landing Page",
-      desc: "Healthcare Landing Page is a responsive and modern UI designed using Bootstrap. This project provides a clean and professional layout suitable for medical and healthcare services, featuring well-structured sections for services, testimonials, and contact information.",
-      imgs: ["/images/projects/healthcare.png"],
+      stacks: [
+        { name: "Figma", img: "/images/stack/figma.svg" },
+        { name: "Bootstrap", img: "/images/stack/bootstrap.svg" },
+        { name: "Tailwind CSS", img: "/images/stack/tailwind.svg" },
+        { name: "Laravel", img: "/images/stack/laravel.svg" },
+      ],
+      link: "https://witpdd.kodingan-saya.com/",
+      github: "https://github.com/arysyahbana/WITPDD",
     },
   ];
 
   const router = useRouter();
   const { id } = router.query;
   const [selectedImg, setSelectedImg] = useState("");
-  const [randomProjects, setRandomProjects] = useState([]);
+  const [randomProjects, setRandomProjects] = useState<ProjectType[]>([]);
 
   useEffect(() => {
     if (!id) return;
@@ -208,7 +151,9 @@ const Detail = () => {
   }, [id]);
 
   // Ambil data berdasarkan id dari URL
-  const project = item.find((p) => p.id === Number(id));
+  const project: ProjectType | undefined = item.find(
+    (p) => p.id === Number(id)
+  );
 
   useEffect(() => {
     if (project && project.imgs.length > 0 && !selectedImg) {

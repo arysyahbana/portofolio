@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { useState } from "react";
+import { BsFillPersonFill } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GrProjects } from "react-icons/gr";
+import { IoHome } from "react-icons/io5";
+import { MdContacts, MdMiscellaneousServices } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,41 +34,46 @@ const Navbar = () => {
 
           <div className="hidden sm:flex sm:gap-8 items-center">
             <Link href="/">
-              <div className="flex gap-1">
-                <div className="text-md">{/* <IoHome /> */}</div>
-                <p className="font-bold text-sm text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-300 hover:to-sky-500 transition duration-200 transform hover:scale-110">
-                  Home
-                </p>
+              <div className="flex gap-1 items-center text-white hover:text-sky-300 transition duration-200 transform">
+                <div className="">
+                  <IoHome />
+                </div>
+                <p className="font-bold">Home</p>
               </div>
             </Link>
             <Link href="/#about">
-              <div className="flex gap-1">
-                <div className="text-md">{/* <FaUser /> */}</div>
-                <p className="font-bold text-sm text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-300 hover:to-sky-500 transition duration-200 hover:scale-110">
-                  About
-                </p>
+              <div className="flex gap-1 items-center text-white hover:text-sky-500 transition duration-200">
+                <div className="text-md">
+                  <BsFillPersonFill />
+                </div>
+                <p className="font-bold">About</p>
               </div>
             </Link>
             <Link href="/#services">
-              <div className="flex gap-1">
-                <div className="text-md">{/* <FaUser /> */}</div>
-                <p className="font-bold text-sm text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-300 hover:to-sky-500 transition duration-300 hover:scale-110">
-                  Services
-                </p>
+              <div className="flex gap-1 items-center text-white hover:text-sky-500 transition duration-300">
+                <div className="text-md">
+                  <MdMiscellaneousServices />
+                </div>
+                <p className="font-bold">Services</p>
               </div>
             </Link>
             <Link href="projects">
-              <div className="flex gap-1">
-                <div className="text-md">{/* <MdContactless /> */}</div>
-                <p className="font-bold text-sm text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-violet-300 hover:to-sky-500 transition duration-300 hover:scale-110">
-                  Projects
-                </p>
+              <div className="flex gap-1 items-center text-white hover:text-sky-500 transition duration-300">
+                <div className="text-md">
+                  <GrProjects />
+                </div>
+                <p className="font-bold">Projects</p>
               </div>
             </Link>
           </div>
 
           <button className="hidden sm:flex text-white bg-gradient-to-r from-violet-500 to-sky-500 hover:from-sky-500 hover:to-violet-500 transition duration-200 hover:scale-105 px-5 py-2 rounded-lg">
-            <Link href="/#contact">Contact</Link>
+            <div className="flex gap-1 items-center">
+              <span>
+                <MdContacts />
+              </span>
+              <Link href="/#contact">Contact</Link>
+            </div>
           </button>
 
           {/* Hamburger Menu */}
@@ -92,22 +101,45 @@ const Navbar = () => {
             </div>
             <ul className="text-white p-5 text-center">
               <li className="mb-3">
-                <Link href="/">Home</Link>
+                <div className="flex gap-1 justify-center items-center text-white hover:text-sky-300 transition duration-200 transform">
+                  <div className="">
+                    <IoHome />
+                  </div>
+                  <p className="font-bold">Home</p>
+                </div>
               </li>
               <li className="mb-3">
-                <Link href="#about">About</Link>
+                <div className="flex gap-1 justify-center items-center text-white hover:text-sky-500 transition duration-200">
+                  <div className="text-md">
+                    <BsFillPersonFill />
+                  </div>
+                  <p className="font-bold">About</p>
+                </div>
               </li>
               <li className="mb-3">
-                <Link href="#contact">Services</Link>
+                <div className="flex gap-1 justify-center items-center text-white hover:text-sky-500 transition duration-300">
+                  <div className="text-md">
+                    <MdMiscellaneousServices />
+                  </div>
+                  <p className="font-bold">Services</p>
+                </div>
               </li>
-              <li className="mb-3">
-                <Link href="projects">Projects</Link>
-              </li>
+              <div className="flex gap-1 justify-center items-center text-white hover:text-sky-500 transition duration-300">
+                <div className="text-md">
+                  <GrProjects />
+                </div>
+                <p className="font-bold">Projects</p>
+              </div>
             </ul>
             {/* Contact Button */}
             <div className="flex gap-2 justify-center sm:hidden">
               <button className="text-white bg-gradient-to-r from-violet-500 to-sky-500 hover:from-sky-500 hover:to-violet-500 transition duration-200 hover:scale-105 px-5 py-2 rounded-lg">
-                <Link href="#contact">Contact</Link>
+                <div className="flex gap-1 items-center">
+                  <span>
+                    <MdContacts />
+                  </span>
+                  <Link href="/#contact">Contact</Link>
+                </div>
               </button>
             </div>
           </div>

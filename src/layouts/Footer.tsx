@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-neutral text-neutral-content p-4">
+    <footer className="bg-transparent backdrop-filter backdrop-blur-sm bg-opacity-10 text-neutral-content p-4">
       <div className="footer container mx-auto px-12 items-center">
         <aside className="grid-flow-col items-center">
           <img src="images/Logo2.png" alt="sitevia.code" className="w-8" />

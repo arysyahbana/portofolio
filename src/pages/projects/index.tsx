@@ -39,54 +39,6 @@ const Projects = () => {
       desc: "This application is built using Laravel for the backend and Tailwind CSS for the frontend. It serves as a transparency platform for village fund management, enabling administrators to provide real-time updates on fund allocations, expenditures, and financial reports. The system ensures accountability and easy access to crucial financial data for the public, fostering trust and transparency in local governance.",
       img: "/images/projects/WITPDD.png",
     },
-    {
-      id: 6,
-      title: "ALaundry - Modern Laundry Service UI",
-      desc: "ALaundry is a sleek and responsive user interface designed for a modern laundry service application. Built with React.js and styled using Tailwind CSS, this project focuses on delivering a clean and intuitive UI experience. While it currently serves as a front-end prototype.",
-      img: "/images/projects/Alaundry.png",
-    },
-    {
-      id: 7,
-      title: "Url Shortening Website",
-      desc: "This project is a URL shortening website that utilizes an API to generate short links efficiently. Built with Vue.js for the frontend and styled using Tailwind CSS, the application offers a clean and modern interface for users to shorten, manage, and track URLs. The seamless API integration ensures quick and reliable link generation, making it a practical solution for efficient URL management.",
-      img: "/images/projects/shortlink.png",
-    },
-    {
-      id: 8,
-      title: "Easybank Landing Page",
-      desc: "Easybank Landing Page is a fully responsive UI design created using Tailwind CSS. This project showcases a modern and clean landing page layout with smooth animations and an intuitive design, making it an ideal front-end template for digital banking services.",
-      img: "/images/projects/easybank.png",
-    },
-    {
-      id: 9,
-      title: "Sunnyside Landing Page",
-      desc: "Sunnyside Landing Page is a visually appealing and responsive UI built with Tailwind CSS. Designed for a creative agency, this landing page features engaging layouts, vibrant colors, and a structured content presentation to enhance user experience.",
-      img: "/images/projects/sunnyside.png",
-    },
-    {
-      id: 10,
-      title: "Age Calculator App",
-      desc: "Age Calculator App is a simple yet functional UI built with Vue.js and styled using Tailwind CSS. This application allows users to input their birth date and instantly calculate their exact age in years, months, and days with a clean and responsive interface.",
-      img: "/images/projects/age.png",
-    },
-    {
-      id: 11,
-      title: "Interactive Card",
-      desc: "Interactive Card is a modern and dynamic UI designed with Vue.js and Tailwind CSS. This project features real-time form validation and interactive previews, making it an ideal template for digital payment or credit card forms with a sleek and user-friendly design.",
-      img: "/images/projects/interactive card.png",
-    },
-    {
-      id: 12,
-      title: "Pokedex",
-      desc: "Pokedex is a web application that provides detailed information about Pokémon. Built with Vue.js and styled using Tailwind CSS, this app fetches real-time Pokémon data from an API, allowing users to search, browse, and explore various Pokémon along with their stats, abilities, and types in a clean and interactive interface.",
-      img: "/images/projects/pokemon.png",
-    },
-    {
-      id: 13,
-      title: "Healthcare Landing Page",
-      desc: "Healthcare Landing Page is a responsive and modern UI designed using Bootstrap. This project provides a clean and professional layout suitable for medical and healthcare services, featuring well-structured sections for services, testimonials, and contact information.",
-      img: "/images/projects/healthcare.png",
-    },
   ];
   const totalPages = Math.ceil(items.length / itemsPerPage);
   const paginatedItems = items.slice(
