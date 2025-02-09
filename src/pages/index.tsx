@@ -1,12 +1,12 @@
 import Footer from "@/layouts/Footer";
 import Navbar from "@/layouts/Navbar";
-import Image from "next/image";
+// import Image from "next/image";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "motion/react";
-import { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import Comp from "../../public/Comp";
+// import { Suspense } from "react";
+// import { Canvas } from "@react-three/fiber";
+// import { OrbitControls } from "@react-three/drei";
+// import Comp from "../../public/Comp";
 import Link from "next/link";
 import { HiDownload } from "react-icons/hi";
 export default function Home() {
