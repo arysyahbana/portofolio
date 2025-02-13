@@ -3,6 +3,7 @@ import Navbar from "@/layouts/Navbar";
 import Link from "next/link";
 import { useState } from "react";
 import GitHubCalendar from "react-github-calendar";
+import { motion } from "motion/react";
 
 const Projects = () => {
   const itemsPerPage = 8;
@@ -59,13 +60,36 @@ const Projects = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {paginatedItems && paginatedItems.length > 0 ? (
-              paginatedItems.map((item) => (
+              paginatedItems.map((item, index) => (
                 <Link
                   key={item.id}
                   href={`/projects/${item.id}`}
                   className="mb-3"
                 >
-                  <div className="card card-compact hover:bg-gray-700 hover:shadow-xl transform hover:scale-105 transition duration-300">
+                  <motion.div
+                    transition={{
+                      duration: 1,
+                      delay: 0.5 + index * 0.2,
+                      type: "spring",
+                      stiffness: 100,
+                    }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: -50 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    whileHover={{
+                      scale: 1.05,
+                      backgroundColor: "#374151",
+                      boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.25)",
+                      transition: { duration: 0.3 },
+                    }}
+                    animate={{
+                      scale: 1,
+                      backgroundColor: "transparent",
+                      boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)",
+                      transition: { duration: 0.3 },
+                    }}
+                    className="card card-compact"
+                  >
                     <figure>
                       <img src={item.img} alt={item.title} />
                     </figure>
@@ -81,46 +105,49 @@ const Projects = () => {
                           : item.desc}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </Link>
               ))
             ) : (
               <p>Loading...</p>
             )}
           </div>
-          <div className="flex justify-center mt-12">
-            <div className="join">
-              <button
-                className={`join-item btn ${
-                  currentPage === 1 ? "btn-disabled" : ""
-                }`}
-                onClick={() => setCurrentPage(currentPage - 1)}
-                disabled={currentPage === 1}
-              >
-                Prev
-              </button>
-              {[...Array(totalPages)].map((_, index) => (
+
+          {items.length >= itemsPerPage && (
+            <div className="flex justify-center mt-12">
+              <div className="join">
                 <button
-                  key={index + 1}
                   className={`join-item btn ${
-                    currentPage === index + 1 ? " bg-violet-500" : ""
+                    currentPage === 1 ? "btn-disabled" : ""
                   }`}
-                  onClick={() => setCurrentPage(index + 1)}
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                  disabled={currentPage === 1}
                 >
-                  {index + 1}
+                  Prev
                 </button>
-              ))}
-              <button
-                className={`join-item btn ${
-                  currentPage === totalPages ? "btn-disabled" : ""
-                }`}
-                onClick={() => setCurrentPage(currentPage + 1)}
-                disabled={currentPage === totalPages}
-              >
-                Next
-              </button>
+                {[...Array(totalPages)].map((_, index) => (
+                  <button
+                    key={index + 1}
+                    className={`join-item btn ${
+                      currentPage === index + 1 ? " bg-violet-500" : ""
+                    }`}
+                    onClick={() => setCurrentPage(index + 1)}
+                  >
+                    {index + 1}
+                  </button>
+                ))}
+                <button
+                  className={`join-item btn ${
+                    currentPage === totalPages ? "btn-disabled" : ""
+                  }`}
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                >
+                  Next
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 

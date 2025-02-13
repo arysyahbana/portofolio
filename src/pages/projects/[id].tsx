@@ -1,7 +1,9 @@
 import Footer from "@/layouts/Footer";
 import Navbar from "@/layouts/Navbar";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 const Detail = () => {
   type ProjectType = {
@@ -55,10 +57,12 @@ const Detail = () => {
       title: "Metro Indonesia Software Company Profile",
       desc: "In this project, I developed a company profile website for Metro Indonesian Software, using React for the frontend and Laravel for the backend. The UI/UX design was crafted in Figma and seamlessly integrated via APIs. The website serves as a dynamic company profile for Metro Indonesian Software, showcasing an overview of the company, its clients, completed projects, team members, and other key information. Admins can easily update all displayed content, allowing for real-time adjustments to keep the information current.",
       imgs: [
-        "/images/projects/Metro Software Indonesia.png",
-        "/images/bg1.jpg",
-        "/images/bg2.jpg",
-        "/images/bg3.jpg",
+        "/images/projectsdetail/metro/1.png",
+        "/images/projectsdetail/metro/2.png",
+        "/images/projectsdetail/metro/3.png",
+        "/images/projectsdetail/metro/4.png",
+        "/images/projectsdetail/metro/5.png",
+        "/images/projectsdetail/metro/6.png",
       ],
       stacks: [
         { name: "Figma", img: "/images/stack/figma.svg" },
@@ -67,7 +71,7 @@ const Detail = () => {
         { name: "React", img: "/images/stack/react.svg" },
         { name: "Laravel", img: "/images/stack/laravel.svg" },
       ],
-      link: "https://metrosoftware.vercel.app/",
+      link: "https://metrosoftware.id/",
       github: "https://github.com/arysyahbana/Metro-Company-Profile",
     },
     {
@@ -78,6 +82,13 @@ const Detail = () => {
         "/images/projectsdetail/digitalasset/1.png",
         "/images/projectsdetail/digitalasset/2.png",
         "/images/projectsdetail/digitalasset/3.png",
+        "/images/projectsdetail/digitalasset/4.png",
+        "/images/projectsdetail/digitalasset/5.png",
+        "/images/projectsdetail/digitalasset/6.png",
+        "/images/projectsdetail/digitalasset/7.png",
+        "/images/projectsdetail/digitalasset/8.png",
+        "/images/projectsdetail/digitalasset/9.png",
+        "/images/projectsdetail/digitalasset/10.png",
       ],
       stacks: [
         { name: "Figma", img: "/images/stack/figma.svg" },
@@ -92,7 +103,20 @@ const Detail = () => {
       title:
         "Tourism Object Information Website and Accommodation Recommendations",
       desc: "his application is a decision support system designed to help tourists find the best accommodations, tour packages, and attractions, with a focus on promoting Alahan Panjang.",
-      imgs: ["/images/projects/SIOP.png"],
+      imgs: [
+        "/images/projectsdetail/siop/1.png",
+        "/images/projectsdetail/siop/2.png",
+        "/images/projectsdetail/siop/3.png",
+        "/images/projectsdetail/siop/4.png",
+        "/images/projectsdetail/siop/5.png",
+        "/images/projectsdetail/siop/6.png",
+        "/images/projectsdetail/siop/7.png",
+        "/images/projectsdetail/siop/8.png",
+        "/images/projectsdetail/siop/9.png",
+        "/images/projectsdetail/siop/10.png",
+        "/images/projectsdetail/siop/11.png",
+        "/images/projectsdetail/siop/12.png",
+      ],
       stacks: [
         { name: "Figma", img: "/images/stack/figma.svg" },
         { name: "Bootstrap", img: "/images/stack/bootstrap.svg" },
@@ -105,7 +129,17 @@ const Detail = () => {
       id: 4,
       title: "Extracurricular Decision Support System",
       desc: "This application is a decision support system designed to help students choose extracurricular activities that align with their interests and skills. Using the SMART (Simple Multi-Attribute Rating Technique) method, the application presents a series of questions for students to answer. These responses are then calculated to generate a tailored recommendation for the most suitable extracurricular activity.",
-      imgs: ["/images/projects/Ekskul.png"],
+      imgs: [
+        "/images/projectsdetail/ekskul/1.png",
+        "/images/projectsdetail/ekskul/2.png",
+        "/images/projectsdetail/ekskul/3.png",
+        "/images/projectsdetail/ekskul/4.png",
+        "/images/projectsdetail/ekskul/5.png",
+        "/images/projectsdetail/ekskul/6.png",
+        "/images/projectsdetail/ekskul/7.png",
+        "/images/projectsdetail/ekskul/8.png",
+        "/images/projectsdetail/ekskul/9.png",
+      ],
       stacks: [
         { name: "Figma", img: "/images/stack/figma.svg" },
         { name: "Bootstrap", img: "/images/stack/bootstrap.svg" },
@@ -118,7 +152,17 @@ const Detail = () => {
       id: 5,
       title: "Transparency Information Website for Village Fund Usage",
       desc: "This application is built using Laravel for the backend and Tailwind CSS for the frontend. It serves as a transparency platform for village fund management, enabling administrators to provide real-time updates on fund allocations, expenditures, and financial reports. The system ensures accountability and easy access to crucial financial data for the public, fostering trust and transparency in local governance.",
-      imgs: ["/images/projects/WITPDD.png"],
+      imgs: [
+        "/images/projectsdetail/witpdd/1.png",
+        "/images/projectsdetail/witpdd/2.png",
+        "/images/projectsdetail/witpdd/3.png",
+        "/images/projectsdetail/witpdd/4.png",
+        "/images/projectsdetail/witpdd/5.png",
+        "/images/projectsdetail/witpdd/6.png",
+        "/images/projectsdetail/witpdd/7.png",
+        "/images/projectsdetail/witpdd/8.png",
+        "/images/projectsdetail/witpdd/9.png",
+      ],
       stacks: [
         { name: "Figma", img: "/images/stack/figma.svg" },
         { name: "Bootstrap", img: "/images/stack/bootstrap.svg" },
@@ -175,17 +219,17 @@ const Detail = () => {
                 <img
                   src={selectedImg}
                   alt={project.title}
-                  className="max-w-[300px] lg:max-w-[500px] xl:max-w-[700px] object-cover"
+                  className="max-w-[300px] lg:max-w-[500px] xl:max-w-[700px] h-full object-cover"
                 />
               </div>
-              <div className="flex flex-wrap gap-3 justify-center items-center">
+              <div className="flex flex-wrap gap-2 justify-center items-center mt-5">
                 {project.imgs && project.imgs.length > 0 ? (
                   project.imgs.map((img, index) => (
                     <div
                       key={index}
                       onClick={() => setSelectedImg(img)}
-                      className={`cursor-pointer rounded-2xl overflow-hidden h-[50px] w-[50px] lg:h-[100px] lg:w-[100px] transition duration-300 hover:scale-105 hover:shadow-xl hover:border-white hover:border-2 bg-slate-600 ${
-                        selectedImg === img ? "border-2 border-white" : ""
+                      className={`cursor-pointer rounded-2xl overflow-hidden h-[30px] w-[50px] lg:h-[80px] lg:w-[100px] transition duration-300 hover:scale-110 hover:shadow-xl hover:border-orange-500 hover:border-2 bg-slate-600 ${
+                        selectedImg === img ? "border-2 border-orange-500" : ""
                       }`}
                     >
                       <img src={img} className="object-cover w-full h-full" />
@@ -272,13 +316,36 @@ const Detail = () => {
             More Projects
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-            {randomProjects.map((project2) => (
-              <a
+            {randomProjects.map((project2, index) => (
+              <Link
                 key={project2.id}
-                href={`/project/${project2.id}`}
+                href={`/projects/${project2.id}`}
                 className="mb-3"
               >
-                <div className="card card-compact hover:bg-gray-700 hover:shadow-xl transform hover:scale-105 transition duration-300">
+                <motion.div
+                  transition={{
+                    duration: 1,
+                    delay: 0.5 + index * 0.2,
+                    type: "spring",
+                    stiffness: 100,
+                  }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: -50 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "#374151",
+                    boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.25)",
+                    transition: { duration: 0.3 },
+                  }}
+                  animate={{
+                    scale: 1,
+                    backgroundColor: "transparent",
+                    boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)",
+                    transition: { duration: 0.3 },
+                  }}
+                  className="card card-compact"
+                >
                   <figure>
                     <img
                       src={project2.img}
@@ -287,11 +354,13 @@ const Detail = () => {
                     />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title">{project2.title}</h2>
-                    <p>{project2.desc.substring(0, 100)}...</p>
+                    <h2 className="card-title">
+                      {project2.title.substring(0, 28)}
+                    </h2>
+                    <p>{project2.desc.substring(0, 80)}...</p>
                   </div>
-                </div>
-              </a>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>

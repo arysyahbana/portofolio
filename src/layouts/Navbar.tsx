@@ -57,7 +57,7 @@ const Navbar = () => {
                 <p className="font-bold">Services</p>
               </div>
             </Link>
-            <Link href="projects">
+            <Link href="/projects">
               <div className="flex gap-1 items-center text-white hover:text-sky-500 transition duration-300">
                 <div className="text-md">
                   <GrProjects />
